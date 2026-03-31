@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "calorie-ring": "/components/calorie-ring/calorie-ring",
+    "nutrient-bar": "/components/nutrient-bar/nutrient-bar"
+  },
+  "navigationBarTitleText": "孕期饮食管家"
+}

@@ -1,0 +1,265 @@
+/* 转盘决策页样式 */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFF5F7 0%, #F0F8F0 100%);
+  padding: 20rpx 0;
+}
+
+/* 分类选择栏 */
+.category-bar {
+  height: 80rpx;
+  white-space: nowrap;
+  margin-bottom: 30rpx;
+}
+
+.category-list {
+  display: inline-flex;
+  padding: 0 20rpx;
+  gap: 16rpx;
+}
+
+.category-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 32rpx;
+  background: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  color: #666;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.category-item.active {
+  background: linear-gradient(135deg, #F8A5B6 0%, #F5B7C4 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(248, 165, 182, 0.4);
+}
+
+/* 转盘区域 */
+.wheel-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 20rpx;
+}
+
+/* 换一批按钮 */
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30rpx auto;
+  padding: 20rpx 48rpx;
+  background: #fff;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  width: fit-content;
+}
+
+.refresh-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.refresh-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 结果弹窗遮罩 */
+.result-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.result-mask.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 结果弹窗 */
+.result-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 40rpx 40rpx 60rpx;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 101;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.result-popup.show {
+  transform: translateY(0);
+}
+
+/* 关闭按钮 */
+.close-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  color: #999;
+}
+
+/* 结果头部 */
+.result-header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.result-title {
+  display: block;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.result-food-name {
+  display: block;
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 营养信息区域 */
+.nutrition-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.nutrition-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 16rpx;
+  background: #f8f8f8;
+  border-radius: 20rpx;
+}
+
+.nutrition-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #F8A5B6;
+}
+
+.nutrition-unit {
+  font-size: 20rpx;
+  color: #F8A5B6;
+  margin-top: 4rpx;
+}
+
+.nutrition-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 40rpx;
+}
+
+.btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28rpx 0;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+}
+
+.btn-icon {
+  margin-right: 12rpx;
+  font-size: 32rpx;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #F8A5B6 0%, #F5B7C4 100%);
+  color: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(248, 165, 182, 0.4);
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #666;
+}
+
+/* 外卖区域 */
+.delivery-section {
+  border-top: 2rpx solid #f0f0f0;
+  padding-top: 30rpx;
+}
+
+.delivery-title {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.delivery-buttons {
+  display: flex;
+  gap: 24rpx;
+}
+
+.delivery-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 0;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+}
+
+.delivery-icon {
+  margin-right: 12rpx;
+  font-size: 32rpx;
+}
+
+.delivery-btn.eleme {
+  background: #0085FF;
+  color: #fff;
+}
+
+.delivery-btn.meituan {
+  background: #FFC300;
+  color: #333;
+}

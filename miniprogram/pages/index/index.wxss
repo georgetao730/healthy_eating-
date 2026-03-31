@@ -1,0 +1,157 @@
+/* 首页样式 */
+
+/* 孕周信息栏 */
+.pregnancy-header {
+  background: linear-gradient(135deg, #F8A5B6 0%, #A8D8B9 100%);
+  border-radius: 24rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(248, 165, 182, 0.3);
+}
+
+.pregnancy-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.pregnancy-week {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.pregnancy-stage {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 8rpx 20rpx;
+  border-radius: 24rpx;
+}
+
+.pregnancy-hint {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 未设置预产期 */
+.no-due-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.no-due-date-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 10rpx;
+}
+
+.no-due-date-hint {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30rpx;
+}
+
+.set-due-date-btn {
+  width: 200rpx;
+  height: 64rpx;
+  font-size: 28rpx;
+  background-color: #FFFFFF !important;
+  color: var(--primary-pink) !important;
+}
+
+/* 卡路里卡片 */
+.calorie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx;
+}
+
+.calorie-ring-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.calorie-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calorie-current {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: var(--primary-pink);
+}
+
+.calorie-target {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  margin-top: 8rpx;
+}
+
+/* 营养素卡片 */
+.nutrients-card {
+  padding: 30rpx;
+}
+
+.nutrients-list {
+  margin-top: 20rpx;
+}
+
+/* 快捷入口卡片 */
+.quick-entry-card {
+  padding: 30rpx;
+}
+
+.quick-entry-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.quick-entry-item {
+  width: 48%;
+  height: 160rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+  transition: all 0.3s ease;
+  border: 2rpx solid rgba(248, 165, 182, 0.1);
+}
+
+.quick-entry-item:active {
+  transform: scale(0.96);
+  opacity: 0.8;
+}
+
+.quick-entry-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.quick-entry-name {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* 底部留白 */
+.bottom-space {
+  height: 40rpx;
+}

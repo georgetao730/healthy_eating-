@@ -1,0 +1,73 @@
+/* 转盘组件 */
+
+.wheel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600rpx;
+  height: 600rpx;
+  margin: 0 auto;
+}
+
+.wheel-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-top: 40rpx solid #FF6B6B;
+  z-index: 10;
+  filter: drop-shadow(0 4rpx 8rpx rgba(0, 0, 0, 0.2));
+}
+
+.wheel-pointer::after {
+  content: '';
+  position: absolute;
+  top: -50rpx;
+  left: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #FF6B6B;
+  border-radius: 50%;
+}
+
+.wheel-btn {
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  background: linear-gradient(135deg, var(--primary-pink), #FFB5C5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 30rpx rgba(248, 165, 182, 0.5);
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.wheel-btn:active {
+  transform: scale(0.95);
+}
+
+.wheel-btn.spinning {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.wheel-btn-text {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+}

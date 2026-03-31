@@ -1,0 +1,226 @@
+/* 饮食记录页样式 */
+
+.record-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 100%);
+}
+
+/* 日期选择器 */
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 40rpx;
+  background: #FFFFFF;
+  border-bottom: 1rpx solid #FFE4EC;
+}
+
+.date-arrow {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30rpx;
+  background: #FFF0F3;
+  transition: all 0.2s ease;
+}
+
+.date-arrow:active {
+  background: #FFD6E0;
+  transform: scale(0.95);
+}
+
+.arrow-icon {
+  font-size: 36rpx;
+  color: #FF8BA7;
+  font-weight: bold;
+}
+
+.date-display {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 40rpx;
+  margin: 0 30rpx;
+  background: linear-gradient(135deg, #FFF0F3 0%, #FFE4EC 100%);
+  border-radius: 40rpx;
+  border: 2rpx solid #FFD6E0;
+}
+
+.date-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #5A4A4A;
+  margin-right: 12rpx;
+}
+
+.date-icon {
+  font-size: 28rpx;
+}
+
+/* 餐次Tab */
+.meal-tabs {
+  background: #FFFFFF;
+  border-bottom: 1rpx solid #F0F0F0;
+  white-space: nowrap;
+}
+
+.meal-tabs-wrapper {
+  display: flex;
+  padding: 20rpx 30rpx;
+}
+
+.meal-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 32rpx;
+  margin-right: 20rpx;
+  background: #F8F8F8;
+  border-radius: 24rpx;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.meal-tab:last-child {
+  margin-right: 0;
+}
+
+.meal-tab.active {
+  background: linear-gradient(135deg, #FFB6C1 0%, #FF8BA7 100%);
+  box-shadow: 0 4rpx 16rpx rgba(255, 139, 167, 0.3);
+}
+
+.meal-icon {
+  font-size: 36rpx;
+  margin-bottom: 6rpx;
+}
+
+.meal-name {
+  font-size: 26rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+.meal-tab.active .meal-name {
+  color: #FFFFFF;
+}
+
+.meal-calorie-badge {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  min-width: 36rpx;
+  height: 36rpx;
+  padding: 0 10rpx;
+  background: #FF6B6B;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-calorie-badge text {
+  font-size: 20rpx;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* 餐次小计 */
+.meal-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 40rpx;
+  background: linear-gradient(90deg, #FFF8F9 0%, #FFFFFF 100%);
+  border-bottom: 1rpx solid #FFE4EC;
+}
+
+.summary-label {
+  font-size: 28rpx;
+  color: #888888;
+}
+
+.summary-value {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FF8BA7;
+}
+
+/* 食物列表 */
+.food-list {
+  flex: 1;
+  padding: 20rpx 30rpx;
+}
+
+.food-list-content {
+  padding-bottom: 140rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 40rpx;
+}
+
+.empty-icon {
+  font-size: 100rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.6;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999999;
+  margin-bottom: 16rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #BBBBBB;
+}
+
+/* 底部悬浮按钮 */
+.add-button-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 40rpx 40rpx;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 30%, #FFFFFF 100%);
+  z-index: 100;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96rpx;
+  background: linear-gradient(135deg, #FFB6C1 0%, #FF8BA7 100%);
+  border-radius: 48rpx;
+  box-shadow: 0 8rpx 24rpx rgba(255, 139, 167, 0.35);
+  transition: all 0.2s ease;
+}
+
+.add-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 12rpx rgba(255, 139, 167, 0.25);
+}
+
+.add-icon {
+  font-size: 40rpx;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin-right: 12rpx;
+}
+
+.add-text {
+  font-size: 32rpx;
+  color: #FFFFFF;
+  font-weight: 600;
+}

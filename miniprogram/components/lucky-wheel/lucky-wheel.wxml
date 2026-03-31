@@ -1,0 +1,7 @@
+<view class="wheel-container">
+  <view class="wheel-pointer"></view>
+  <canvas type="2d" id="wheelCanvas" class="wheel-canvas" style="width:600rpx;height:600rpx;"></canvas>
+  <view class="wheel-btn {{spinning ? 'spinning' : ''}}" bindtap="startSpin">
+    <text class="wheel-btn-text">GO</text>
+  </view>
+</view>

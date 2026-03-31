@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "lucky-wheel": "/components/lucky-wheel/lucky-wheel"
+  },
+  "navigationBarTitleText": "吃什么好呢"
+}

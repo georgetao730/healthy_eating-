@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/record/record",
+    "pages/record-add/record-add",
+    "pages/nutrition/nutrition",
+    "pages/wheel/wheel",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F8A5B6",
+    "navigationBarTitleText": "孕期饮食管家",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#F8A5B6",
+    "backgroundColor": "#fff",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/record/record", "text": "记录" },
+      { "pagePath": "pages/nutrition/nutrition", "text": "营养" },
+      { "pagePath": "pages/wheel/wheel", "text": "决策" },
+      { "pagePath": "pages/profile/profile", "text": "我的" }
+    ]
+  },
+  "cloud": true,
+  "sitemapLocation": "sitemap.json"
+}

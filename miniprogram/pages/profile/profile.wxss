@@ -1,0 +1,260 @@
+/* 个人中心页样式 */
+
+.profile-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding-bottom: 60rpx;
+}
+
+/* 用户信息区域 */
+.user-header {
+  background: linear-gradient(135deg, var(--primary-pink), #FFB5C5);
+  padding: 60rpx 30rpx 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.user-avatar-wrapper {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 6rpx solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.user-info {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-nickname {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.pregnancy-info {
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+}
+
+.pregnancy-week {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 500;
+}
+
+.pregnancy-stage {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-left: 12rpx;
+}
+
+.login-btn {
+  margin-top: 20rpx;
+  padding: 12rpx 40rpx;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 40rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+}
+
+.login-text {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 卡片通用样式 */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 24rpx;
+  margin: -40rpx 30rpx 30rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(248, 165, 182, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.card-header {
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 设置卡片 */
+.setting-card {
+  margin-top: -40rpx;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 0;
+}
+
+.setting-label {
+  font-size: 30rpx;
+  color: var(--text-primary);
+}
+
+.setting-value-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.setting-value {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.setting-value.placeholder {
+  color: var(--text-light);
+}
+
+.setting-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.setting-input {
+  width: 120rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.unit {
+  font-size: 26rpx;
+  color: var(--text-light);
+  margin-left: 8rpx;
+}
+
+.arrow {
+  font-size: 28rpx;
+  color: var(--text-light);
+  margin-left: 16rpx;
+}
+
+.divider-line {
+  height: 1rpx;
+  background-color: #f0f0f0;
+}
+
+/* 外卖卡片 */
+.takeout-card {
+  margin-top: 0;
+}
+
+.takeout-buttons {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 10rpx;
+}
+
+.takeout-btn {
+  flex: 1;
+  height: 120rpx;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.takeout-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.eleme-btn {
+  background: linear-gradient(135deg, #009FE8, #00B4FF);
+  box-shadow: 0 4rpx 16rpx rgba(0, 159, 232, 0.3);
+}
+
+.meituan-btn {
+  background: linear-gradient(135deg, #FFD100, #FFE033);
+  box-shadow: 0 4rpx 16rpx rgba(255, 209, 0, 0.3);
+}
+
+.btn-icon {
+  font-size: 40rpx;
+  margin-bottom: 4rpx;
+}
+
+.btn-text {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.eleme-btn .btn-text {
+  color: #fff;
+}
+
+.meituan-btn .btn-text {
+  color: #333;
+}
+
+/* 数据管理卡片 */
+.data-card {
+  margin-top: 0;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 0;
+}
+
+.data-label {
+  font-size: 30rpx;
+  color: var(--text-primary);
+}
+
+.export-label {
+  color: var(--primary-green);
+}
+
+.clear-label {
+  color: #FF6B6B;
+}
+
+/* 版本信息 */
+.version-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+}
+
+.version-text {
+  font-size: 24rpx;
+  color: var(--text-light);
+}
+
+.copyright {
+  font-size: 22rpx;
+  color: var(--text-light);
+  margin-top: 8rpx;
+  opacity: 0.8;
+}

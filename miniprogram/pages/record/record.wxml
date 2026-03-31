@@ -1,0 +1,76 @@
+<view class="record-container">
+  <!-- 日期选择器 -->
+  <view class="date-picker">
+    <view class="date-arrow" bindtap="prevDate">
+      <text class="arrow-icon">‹</text>
+    </view>
+    <picker mode="date" value="{{currentDate}}" bindchange="pickDate">
+      <view class="date-display">
+        <text class="date-text">{{currentDateDisplay}}</text>
+        <text class="date-icon">📅</text>
+      </view>
+    </picker>
+    <view class="date-arrow" bindtap="nextDate">
+      <text class="arrow-icon">›</text>
+    </view>
+  </view>
+
+  <!-- 餐次Tab -->
+  <scroll-view class="meal-tabs" scroll-x="true" show-scrollbar="false">
+    <view class="meal-tabs-wrapper">
+      <view 
+        class="meal-tab {{currentMeal === item.key ? 'active' : ''}}" 
+        wx:for="{{mealTypes}}" 
+        wx:key="key"
+        data-meal="{{item.key}}"
+        bindtap="switchMeal"
+      >
+        <text class="meal-icon">{{item.icon}}</text>
+        <text class="meal-name">{{item.name}}</text>
+        <view class="meal-calorie-badge" wx:if="{{mealCalories[item.key] > 0}}">
+          <text>{{mealCalories[item.key]}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 餐次小计 -->
+  <view class="meal-summary" wx:if="{{mealCalories[currentMeal] > 0}}">
+    <text class="summary-label" wx:if="{{currentMeal === 'breakfast'}}">早餐摄入</text>
+    <text class="summary-label" wx:if="{{currentMeal === 'lunch'}}">午餐摄入</text>
+    <text class="summary-label" wx:if="{{currentMeal === 'dinner'}}">晚餐摄入</text>
+    <text class="summary-label" wx:if="{{currentMeal === 'snack'}}">加餐摄入</text>
+    <text class="summary-value">{{mealCalories[currentMeal]}} 千卡</text>
+  </view>
+
+  <!-- 食物列表 -->
+  <scroll-view class="food-list" scroll-y="true">
+    <view class="food-list-content">
+      <!-- 有记录时显示列表 -->
+      <block wx:if="{{records[currentMeal].length > 0}}">
+        <food-card 
+          wx:for="{{records[currentMeal]}}" 
+          wx:key="_id"
+          food="{{item}}"
+          showDelete="{{true}}"
+          binddelete="deleteRecord"
+        />
+      </block>
+      
+      <!-- 空状态 -->
+      <view class="empty-state" wx:else>
+        <text class="empty-icon">🍽️</text>
+        <text class="empty-text">暂无记录</text>
+        <text class="empty-hint">点击下方按钮添加食物</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部悬浮按钮 -->
+  <view class="add-button-wrapper">
+    <view class="add-button" bindtap="goToAdd">
+      <text class="add-icon">+</text>
+      <text class="add-text">添加食物</text>
+    </view>
+  </view>
+</view>

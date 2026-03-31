@@ -1,0 +1,66 @@
+<view class="container">
+  <!-- 孕周信息栏 -->
+  <view class="pregnancy-header">
+    <block wx:if="{{hasDueDate}}">
+      <view class="pregnancy-info">
+        <text class="pregnancy-week">孕 {{pregnancyWeek}} 周 {{pregnancyDay}} 天</text>
+        <text class="pregnancy-stage">{{stageName}}</text>
+      </view>
+      <text class="pregnancy-hint">宝宝正在健康成长中 💕</text>
+    </block>
+    <block wx:else>
+      <view class="no-due-date">
+        <text class="no-due-date-text">请先设置预产期</text>
+        <text class="no-due-date-hint">获取个性化的营养建议</text>
+        <view class="btn btn-primary set-due-date-btn" bindtap="goToProfile">去设置</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 卡路里环形图 -->
+  <view class="card calorie-card">
+    <view class="card-title">今日热量</view>
+    <view class="calorie-ring-wrapper">
+      <calorie-ring current="{{todayCalories}}" target="{{targetCalories}}" size="280"></calorie-ring>
+      <view class="calorie-info">
+        <text class="calorie-current">{{Math.round(todayCalories)}}</text>
+        <text class="calorie-target">/ {{targetCalories}} 千卡</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心营养素进度条 -->
+  <view class="card nutrients-card">
+    <view class="card-title">营养素摄入</view>
+    <view class="nutrients-list">
+      <block wx:for="{{nutrients}}" wx:key="name">
+        <nutrient-bar 
+          name="{{item.name}}" 
+          current="{{item.current}}" 
+          target="{{item.target}}" 
+          unit="{{item.unit}}">
+        </nutrient-bar>
+      </block>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="card quick-entry-card">
+    <view class="card-title">快捷入口</view>
+    <view class="quick-entry-grid">
+      <view 
+        class="quick-entry-item" 
+        wx:for="{{quickEntries}}" 
+        wx:key="name"
+        bindtap="onQuickEntryTap"
+        data-action="{{item.action}}"
+        style="background: linear-gradient(135deg, {{item.color}}20, {{item.color}}10);">
+        <text class="quick-entry-icon">{{item.icon}}</text>
+        <text class="quick-entry-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白（为tabBar预留空间） -->
+  <view class="bottom-space"></view>
+</view>

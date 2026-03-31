@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nutrient-bar": "/components/nutrient-bar/nutrient-bar"
+  },
+  "navigationBarTitleText": "营养分析"
+}

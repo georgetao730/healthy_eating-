@@ -1,0 +1,177 @@
+<view class="record-add-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrapper">
+      <text class="search-icon">🔍</text>
+      <input 
+        class="search-input" 
+        type="text" 
+        placeholder="搜索食物名称..." 
+        value="{{keyword}}"
+        bindinput="onSearch"
+      />
+      <view class="clear-btn" wx:if="{{keyword}}" bindtap="clearSearch">
+        <text class="clear-icon">✕</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分类筛选 -->
+  <scroll-view class="category-tabs" scroll-x="true" show-scrollbar="false">
+    <view class="category-tabs-wrapper">
+      <view 
+        class="category-tab {{category === item.key ? 'active' : ''}}" 
+        wx:for="{{categories}}" 
+        wx:key="key"
+        data-category="{{item.key}}"
+        bindtap="switchCategory"
+      >
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 搜索结果列表 -->
+  <scroll-view class="food-list" scroll-y="true">
+    <view class="food-list-content">
+      <block wx:if="{{foodList.length > 0}}">
+        <view 
+          class="food-item" 
+          wx:for="{{foodList}}" 
+          wx:key="id"
+          data-food="{{item}}"
+          bindtap="selectFood"
+        >
+          <view class="food-item-info">
+            <text class="food-item-name">{{item.name}}</text>
+            <text class="food-item-category" wx:if="{{item.category === 'staple'}}">主食</text>
+            <text class="food-item-category" wx:if="{{item.category === 'meat'}}">肉蛋</text>
+            <text class="food-item-category" wx:if="{{item.category === 'vegetable'}}">蔬菜</text>
+            <text class="food-item-category" wx:if="{{item.category === 'fruit'}}">水果</text>
+            <text class="food-item-category" wx:if="{{item.category === 'soup'}}">汤品</text>
+            <text class="food-item-category" wx:if="{{item.category === 'dairy'}}">乳制品</text>
+            <text class="food-item-category" wx:if="{{item.category === 'nut'}}">坚果</text>
+            <text class="food-item-category" wx:if="{{item.category === 'snack'}}">零食</text>
+          </view>
+          <view class="food-item-calorie">
+            <text class="calorie-value">{{item.calories}}</text>
+            <text class="calorie-unit">千卡/100g</text>
+          </view>
+        </view>
+      </block>
+      
+      <!-- 空状态 -->
+      <view class="empty-state" wx:else>
+        <text class="empty-icon">🔍</text>
+        <text class="empty-text">未找到相关食物</text>
+        <text class="empty-hint">试试其他关键词</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 食物详情弹窗 -->
+  <view class="detail-mask {{showDetail ? 'show' : ''}}" bindtap="closeDetail" wx:if="{{showDetail}}"></view>
+  <view class="detail-popup {{showDetail ? 'show' : ''}}" wx:if="{{showDetail}}">
+    <view class="detail-header">
+      <view class="detail-title-bar">
+        <text class="detail-food-name">{{selectedFood.name}}</text>
+        <view class="close-btn" bindtap="closeDetail">
+          <text class="close-icon">✕</text>
+        </view>
+      </view>
+      <text class="detail-food-calorie">{{selectedFood.calories}} 千卡/100g</text>
+    </view>
+
+    <scroll-view class="detail-content" scroll-y="true">
+      <!-- 份量设置 -->
+      <view class="amount-section">
+        <text class="section-title">份量设置</text>
+        <view class="amount-input-wrapper">
+          <input 
+            class="amount-input" 
+            type="digit" 
+            value="{{amount}}"
+            bindinput="changeAmount"
+          />
+          <text class="amount-unit">克</text>
+        </view>
+        
+        <!-- 快捷份量 -->
+        <view class="quick-amounts">
+          <view 
+            class="quick-amount-tag {{amount === item ? 'active' : ''}}"
+            wx:for="{{quickAmounts}}"
+            wx:key="*this"
+            data-amount="{{item}}"
+            bindtap="quickSetAmount"
+          >
+            <text>{{item}}g</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 营养预览 -->
+      <view class="nutrition-preview" wx:if="{{previewNutrition}}">
+        <text class="section-title">营养预览</text>
+        <view class="nutrition-grid">
+          <view class="nutrition-item highlight">
+            <text class="nutrition-value">{{previewNutrition.calories}}</text>
+            <text class="nutrition-label">千卡</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.protein}}g</text>
+            <text class="nutrition-label">蛋白质</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.carbs}}g</text>
+            <text class="nutrition-label">碳水</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.fat}}g</text>
+            <text class="nutrition-label">脂肪</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.folicAcid}}μg</text>
+            <text class="nutrition-label">叶酸</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.calcium}}mg</text>
+            <text class="nutrition-label">钙</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.iron}}mg</text>
+            <text class="nutrition-label">铁</text>
+          </view>
+          <view class="nutrition-item">
+            <text class="nutrition-value">{{previewNutrition.dha}}mg</text>
+            <text class="nutrition-label">DHA</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 餐次选择 -->
+      <view class="meal-section">
+        <text class="section-title">添加到</text>
+        <view class="meal-options">
+          <view 
+            class="meal-option {{mealType === item.key ? 'active' : ''}}"
+            wx:for="{{mealTypes}}"
+            wx:key="key"
+            data-meal="{{item.key}}"
+            bindtap="selectMealType"
+          >
+            <text class="meal-icon">{{item.icon}}</text>
+            <text class="meal-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 保存按钮 -->
+    <view class="detail-footer">
+      <view class="save-button" bindtap="saveRecord">
+        <text class="save-text">保存记录</text>
+      </view>
+    </view>
+  </view>
+</view>
